@@ -4,12 +4,12 @@ Gem::Specification.new do |s|
   s.date = "2013-01-10"
 
   # Gem details
-  s.name = "compass-helpers"
+  s.name = "compass-helper"
   s.authors = ["Digital Evolution Group"]
   s.summary = %q{Compass plugin utilities and helpers}
   s.description = %q{This simple plugin for Compass enables you to use custom helpers and utilities in your stylesheets without having to download it}
   s.email = ["dmendez@degdigital.com"]
-  s.homepage = "https://github.com/jlawhorn"
+  s.homepage = "https://github.com/jlawhorn/compass-helper"
 
   s.has_rdoc = false
 
