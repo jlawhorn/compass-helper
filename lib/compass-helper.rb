@@ -1,0 +1,1 @@
+Compass::Frameworks.register("compass-helper", :path => "#{File.dirname(__FILE__)}/..")
