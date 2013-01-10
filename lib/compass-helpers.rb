@@ -1,0 +1,1 @@
+Compass::Frameworks.register("compass-deg", :path => "#{File.dirname(__FILE__)}/..")

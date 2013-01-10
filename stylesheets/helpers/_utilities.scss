@@ -1,0 +1,71 @@
+// HTML5 Placeholder Styling
+@mixin placeholder() {
+    .placeholder { @content;  }
+    ::-webkit-input-placeholder  { @content;  }
+    :-moz-placeholder { @content;  }
+}
+
+// CSS3 Animation
+@mixin animation($name, $duration, $timing-function: ease, $delay: 0, $iteration-count: 1, $direction: both) {
+    -o-animation: $name $duration $timing-function $delay $iteration-count $direction;
+    -moz-animation: $name $duration $timing-function $delay $iteration-count $direction;
+    -webkit-animation: $name $duration $timing-function $delay $iteration-count $direction;
+    animation: $name $duration $timing-function $delay $iteration-count $direction;
+}
+
+// CSS3 Keyframes
+@mixin keyframes($name) {
+    @-webkit-keyframes #{$name} {
+        @content; 
+    }
+    @-moz-keyframes #{$name} {
+        @content;
+    }
+    @-ms-keyframes #{$name} {
+        @content;
+    }
+    @keyframes #{$name} {
+        @content;
+    } 
+}
+
+// gives old ie browsers :before capabilities
+@mixin oldie-before() {
+    *zoom: expression(this.runtimeStyle.zoom='1', this.appendChild( document.createElement('small') ).className='before');
+}
+
+// Pseudo shape helper
+@mixin pseudo-shape($bw, $bc, $w: 0, $h: 0) {
+    content: ' ';
+    display: block;
+    position: absolute;
+    width: $w;
+    height: $h;
+    border-width: $bw;
+    border-color: $bc;
+    border-style: solid;
+
+    // smoothness!
+    @include transform(rotate(-360deg));
+}
+
+// Create a style in REMs with PX fallback when html font size is equivelent to 10px
+// Based on https://github.com/bitmanic/rem
+$baseline-px: 10;
+@mixin rem($property, $rem-values) {
+    @if type-of($rem-values) == "number" {
+        $px-values: $rem-values * $baseline-px;
+        #{$property}: ($px-values / 1rem) + px;
+        #{$property}: $rem-values;
+    } @else {
+        $px-values: unquote("");
+        @each $value in $rem-values {
+            @if $value == 0 {
+                $px-values: append($px-values, 0); }
+            @else {
+                $value: $value / 1rem;
+                $px-values: append($px-values, $value * $baseline-px + px); }}
+        #{$property}: $px-values;
+        #{$property}: $rem-values;
+    }
+}
