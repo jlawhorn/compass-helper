@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   # Release information
-  s.version = "1.0"
-  s.date = "2013-01-10"
+  s.version = "1.1"
+  s.date = "2013-01-11"
 
   # Gem details
   s.name = "compass-helper"
