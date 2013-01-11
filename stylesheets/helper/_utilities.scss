@@ -30,8 +30,8 @@
 }
 
 // gives old ie browsers :before capabilities
-@mixin oldie-before() {
-    *zoom: expression(this.runtimeStyle.zoom='1', this.appendChild( document.createElement('small') ).className='before');
+@mixin oldie-before($content: "") {
+    *zoom: expression(this.runtimeStyle.zoom='1', this.innerHTML = '<small class="before">#{$content}</small>' + this.innerHTML);
 }
 
 // Pseudo shape helper
