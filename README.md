@@ -12,3 +12,4 @@ To use the plugin, just import and include:
 ```
 @import 'compass-helper';
 ```
+
