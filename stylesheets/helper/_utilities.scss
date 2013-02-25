@@ -1,5 +1,10 @@
 @import "compass/css3/transform";
 
+@mixin vector-bg-with-fallback($name) {
+  background-image: image-url('#{$name}.png');
+  background-image: none, image-url('#{$name}.svg');
+}
+
 // HTML5 Placeholder Styling
 @mixin placeholder() {
     .placeholder { @content;  }
